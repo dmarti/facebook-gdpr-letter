@@ -21,26 +21,35 @@ EUROPE
 
 To whom it may concern:
 
-I hereby object to the following processing of my
-personal information: any processing that includes
-or depends on any disclosure of any of my personal
-information to Facebook, Inc., Facebook Ireland Ltd,
-and any other companies owned and/or operated by
-Facebook, Inc. and or Facebook Ireland Ltd. (the
-"Facebook Companies.")
-
 Article 21 of the General Data Protection Regulation
 (GDPR) states that, "Where the data subject objects to
 processing for direct marketing purposes, the personal
 data shall no longer be processed for such purposes."
 
+I hereby object to the following processing of
+personal data concerning me: any processing that
+results in or depends on any disclosure of any
+personal data concerning me to Facebook, Inc.,
+Facebook Ireland Ltd, or any of the companies owned
+and/or operated by Facebook, Inc. and/or Facebook
+Ireland Ltd. (the "Facebook Companies.")
+
+If I have previously granted consent to your company
+for any processing of personal data concerning me
+that would result in disclosure of such data to
+any of the Facebook Companies, I hereby withdraw
+any such consent. Article 7 of the GDPR states,
+"The data subject shall have the right to withdraw
+his or her consent at any time."
+
 Please confirm that you have ceased any such
-processing.
+processing.  I do not object to your company's storage
+or processing of personal data concerning me, only
+to disclosing this data to the Facebook Companies.
+
+
+Sincerely,
 
 
 
-Sincerley,
-
-
-Joseph Murcan
-
+NAME HERE
