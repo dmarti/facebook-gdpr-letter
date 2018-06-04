@@ -7,7 +7,8 @@
 	body { text-align: center; font-family: "monospace" }
 	main, header, footer { margin-left: auto; margin-right: auto; max-width: 66em; text-align: left; margin-bottom: 8ex;}
 	header, footer { background: #ccc; padding: 2ex; border: 1px solid #aaa;}
-	#greeting, #signature { margin-top: 8ex; }
+	#greeting { margin-top: 4ex; }
+	#signature { margin-top: 8ex; }
 	[contenteditable="true"] { border: 2px dotted blue; }
 	#today { margin-top: 4ex; margin-bottom: 4ex; }
 	@media print {
@@ -16,9 +17,10 @@
 	}
   </style>
 </head><body>
+
 <header>
 	<p>Edit your info, then print and send.  Your edits are local and are not saved on the server.
-	The header and footer text should not show up on the printed version.</p>
+	The header and footer text, and the dotted borders to indicate what to edit, should not show up on the printed version.</p>
 </header>
 
 <main>
@@ -59,7 +61,7 @@ processing.</p>
 
 <p id="signature" contenteditable="true">NAME HERE</p>
 </main>
-<footer><a href="https://github.com/dmarti/gdpr-letter">This letter on GitHub</a> &bull; <a href="//blog.zgp.org/">Don Marti</a></footer>
+<footer><a href="https://github.com/dmarti/facebook-gdpr-letter">This letter on GitHub</a> &bull; <a href="//blog.zgp.org/">Don Marti</a></footer>
 <script src="https://ad.aloodo.com/track.js"></script>
 <script>
 	var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; 
