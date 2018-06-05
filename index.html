@@ -4,14 +4,17 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <style type="text/css" media="all">
-	body { text-align: center; font-family: "monospace" }
-	main, header, footer { margin-left: auto; margin-right: auto; max-width: 66em; text-align: left; margin-bottom: 8ex;}
+	body { text-align: center; font-family: "monospace"; margin: 0px; }
+	main, header, footer {	margin-left: auto; margin-right: auto;
+							max-width: 66em; text-align: left; }
+	main { margin-bottom: 0px; margin-top: 0px;}
+	header, footer { margin-bottom: 4ex; margin-top: 4ex;}
 	header, footer { background: #ccc; padding: 2ex; border: 1px solid #aaa;}
 	#greeting { margin-top: 4ex; }
-	#name2 { margin-top: 8ex; }
+	#name2 { margin-top: 8ex; margin-bottom: 0px;}
 	#name { border-bottom: 0px; }
-	[contenteditable="true"] { border: 2px dotted blue; margin-top: 0px; margin-bottom: 0px;}
-	#today { margin-top: 4ex; margin-bottom: 4ex; }
+	[contenteditable="true"] { border: 1px dashed blue; margin-top: 0px; margin-bottom: 0px;}
+	#today { margin-top: 2ex; margin-bottom: 2ex; }
 	@media print {
 		header, footer { display: none !important; }
 		* {border: 0px !important }
@@ -29,7 +32,7 @@
 	<p>Edit your info, then print and send.
 	Your edits are local and are not saved on
 	the server.  The header and footer text, and
-	the dotted borders to indicate what to edit,
+	the dashed lines that show the editable areas,
 	should not show up on the printed version.</p>
 
 	<p>If you want to paste this letter into a
@@ -48,7 +51,7 @@
 
 <p style="margin-bottom: 0px;">Data Protection Officer</p>
 
-<p contenteditable="true">EuroCorp S.A.<br>1 EuroStraße<br>EUROPE</p>
+<p contenteditable="true">Company name<br>Company address (if sending by postal mail)
 
 <p id="greeting">To whom it may concern:</p>
 
