@@ -4,13 +4,17 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <style type="text/css" media="all">
-	body { text-align: center; font-family: "monospace" }
-	main, header, footer { margin-left: auto; margin-right: auto; max-width: 66em; text-align: left; margin-bottom: 8ex;}
+	body { text-align: center; font-family: "monospace"; margin: 0px; }
+	main, header, footer {	margin-left: auto; margin-right: auto;
+							max-width: 66em; text-align: left; }
+	main { margin-bottom: 0px; margin-top: 0px;}
+	header, footer { margin-bottom: 4ex; margin-top: 4ex;}
 	header, footer { background: #ccc; padding: 2ex; border: 1px solid #aaa;}
 	#greeting { margin-top: 4ex; }
-	#signature { margin-top: 8ex; }
-	[contenteditable="true"] { border: 2px dotted blue; }
-	#today { margin-top: 4ex; margin-bottom: 4ex; }
+	#name2 { margin-top: 8ex; margin-bottom: 0px;}
+	#name { border-bottom: 0px; }
+	[contenteditable="true"] { border: 1px dashed blue; margin-top: 0px; margin-bottom: 0px;}
+	#today { margin-top: 2ex; margin-bottom: 2ex; }
 	@media print {
 		header, footer { display: none !important; }
 		* {border: 0px !important }
@@ -19,16 +23,35 @@
 </head><body>
 
 <header>
-	<p>Edit your info, then print and send.  Your edits are local and are not saved on the server.
-	The header and footer text, and the dotted borders to indicate what to edit, should not show up on the printed version.</p>
+	<p>Don't want companies adding you to creepy
+	<q>Facebook Custom Audiences</q>?  Good news:
+	European regulations require companies to
+	respect your objections, even if you're not
+	European.</p>
+
+	<p>Edit your info, then print and send.
+	Your edits are local and are not saved on
+	the server.  The header and footer text, and
+	the dashed lines that show the editable areas,
+	should not show up on the printed version.</p>
+
+	<p>If you want to paste this letter into a
+	web form or email, click the <q>Copy letter
+	to clipboard</q> button.
+
+	<p style="margin-bottom: 0px;
+	text-align: right"><button onClick="copyLetter();">Copy letter to clipboard</button> </p>
 </header>
 
 <main>
-<p contenteditable="true">Your name<br>123 Main Street<br>Springfield, USA</p>
+<p contenteditable="true" id="name">Your name</p>
+<p id="address" contenteditable="true">123 Main Street<br>Springfield, USA</p>
 
-<p id="today">July 4, 2018</p>
+<p id="today">DATE</p>
 
-<p contenteditable="true">Data Protection Officer<br>EuroCorp S.A.<br>1 EuroStraße<br>EUROPE</p>
+<p style="margin-bottom: 0px;">Data Protection Officer</p>
+
+<p contenteditable="true">Company name<br>Company address (if sending by postal mail)
 
 <p id="greeting">To whom it may concern:</p>
 
@@ -63,16 +86,53 @@ processing.</p>
 
 <p>Sincerely,</p>
 
-<p id="signature" contenteditable="true">NAME HERE</p>
+<p id="name2">Your name</p>
 </main>
 <footer><a href="https://github.com/dmarti/facebook-gdpr-letter">This letter on GitHub</a> &bull; <a href="//blog.zgp.org/">Don Marti</a></footer>
 <script src="https://ad.aloodo.com/track.js"></script>
 <script>
+	function restoreContent() {
+		var n = localStorage.getItem('username');
+		if (n) {
+			document.getElementById('name').innerHTML = n;
+			document.getElementById('name2').innerHTML = n;
+		}
+		var a = localStorage.getItem('address');
+		if (a) {
+			document.getElementById('address').innerHTML = a;
+		}
+	}
+	
+	function saveContent() {
+		localStorage.setItem('username', document.getElementById('name').innerHTML);
+		localStorage.setItem('address', document.getElementById('address').innerHTML);
+	}
+
+	function copyLetter() {
+		var letterText = document.getElementsByTagName('main')[0].innerHTML;
+		console.log(letterText);
+		letterText = letterText.replace(/<br>(?!<)/g, "\n");
+		letterText = letterText.replace(/<[^>]+>/g, '');
+		const el = document.createElement('textarea');
+		el.value = letterText;
+		el.setAttribute('readonly', '');
+		el.style.position = 'absolute';
+		el.style.left = '-9999px';
+		document.body.appendChild(el);
+		el.select();
+		document.execCommand('copy');
+		document.body.removeChild(el);
+	}
+
 	var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; 
-	var dateFormatter = new Intl.DateTimeFormat('en-US', options)
-	var el = document.getElementById('today');
-	var now = new Date();
-	el.innerHTML = dateFormatter.format(now);
+	var dateFormatter = new Intl.DateTimeFormat('en-US', options);
+	document.getElementById('today').innerHTML = dateFormatter.format(new Date());
+	var username = document.getElementById('name');
+	username.addEventListener('blur', function(event) {
+		document.getElementById('name2').innerHTML = username.innerHTML;
+		saveContent();
+	});
+	document.getElementById('address').addEventListener('blur', saveContent);
+	restoreContent();
 </script>
 </body></html>
-
